@@ -4,19 +4,22 @@ import { Text, StyleSheet, View, Button } from "react-native";
 const AMOUNT = 100;
 
 const reducer = (state, action) => {
+  // state === { count: number }
+  // action === { type: 'increase' || 'decrease', payload: 1 }
+
   switch (action.type) {
     case "increase":
-      return { ...state, counter: state.counter + action.payload };
+      return { ...state, count: state.count + action.payload };
     case "decrease":
-      return { ...state, counter: state.counter - action.payload };
+      return { ...state, count: state.count - action.payload };
     default:
       return state;
   }
 };
 
 const CounterScreen2 = () => {
-  const [state, dispatch] = useReducer(reducer, { counter: 0 });
-  const { counter } = state;
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  const { count } = state;
 
   return (
     <View>
@@ -29,7 +32,7 @@ const CounterScreen2 = () => {
         onPress={() => dispatch({ type: "decrease", payload: AMOUNT })}
       />
       <Text style={{ textAlign: "center", fontSize: 40 }}>
-        Current Count:{counter}
+        Current Count:{count}
       </Text>
     </View>
   );
