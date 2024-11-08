@@ -36,6 +36,7 @@ const HomeScreen = ({ navigation }) => {
         title="Go to Square2"
         onPress={() => navigation.navigate("Square2")}
       />
+      <Button title="Go to Text" onPress={() => navigation.navigate("Text")} />
     </View>
   );
 };
